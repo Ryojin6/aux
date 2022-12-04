@@ -61,17 +61,17 @@ export default function main(Vue, { head }) {
     },
     {
       name: 'og:site_name',
-      content: 'LightLabs',
+      content: 'Auxano',
     },
     {
       name: 'og:description',
-      content: `A web3 focussed development company specialising in Discord,
-      Website Design/Development, Smart Contracts and Audits.`,
+      content: ` Auxano Studios is a Digital Creative Agency Focused on Bringing
+      Your Ideas and Brand to Life.`,
     },
     {
       name: 'twitter:card',
-      content: `A web3 focussed development company specialising in Discord,
-      Website Design/Development, Smart Contracts and Audits.`,
+      content: ` Auxano Studios is a Digital Creative Agency Focused on Bringing
+      Your Ideas and Brand to Life.`,
     },
   );
 

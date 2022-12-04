@@ -2,10 +2,8 @@ const tailwind = require('tailwindcss');
 const nesting = require('tailwindcss/nesting');
 
 module.exports = {
-  siteName: `Lorem ipsum dolor sit amet consectetur adipisicing elit.
-   Fuga expedita provident maiores possimus ab quasi quod optio suscipit 
-   numquam dolorum? Doloremque modi sed non, earum similique suscipit 
-   aut ex veritatis?
+  siteName: ` Auxano Studios is a Digital Creative Agency Focused on Bringing
+  Your Ideas and Brand to Life.
   `,
   siteUrl: process.env.FRONTEND_URI,
   icon: {

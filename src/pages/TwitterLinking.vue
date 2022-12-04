@@ -9,12 +9,6 @@
         to="/"
         class="scrolled: mb-10 w-56 transition-all duration-300 ease-in-out 2xl:w-64 3xl:w-80"
       >
-        <g-image
-          src="~/images/animated-logo.svg"
-          immediate
-          alt=""
-          class="w-full"
-        />
       </g-link>
       <MoleculeTitle
         v-if="success === 'true'"
