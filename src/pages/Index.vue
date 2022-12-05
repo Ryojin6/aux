@@ -73,16 +73,45 @@
           </div>
         </div>
 
-        <AtomAnimate class="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-          <a href="#" v-for="i in 6" class="group relative">
-            <div
-              class="pin-center custom-transition absolute flex h-full w-full items-center justify-center rounded-3xl bg-a-charcoal bg-opacity-80 font-title text-sm font-bold uppercase text-white opacity-0 group-hover:opacity-100 md:text-lg"
-            >
-              <span> Name of project </span>
-            </div>
+        <AtomAnimate class="grid gap-6 pt-20 sm:grid-cols-2 xl:grid-cols-3">
+          <button
+            v-for="(card, index) in cardInfo"
+            :key="index"
+            class="group relative"
+            @click="
+              selectedPortfolio = card.video;
+              popup = true;
+            "
+          >
             <img src="/landingimage.png" alt="" class="rounded-3xl" />
-          </a>
+            <div
+              class="custom-transition rounded-3xl p-4 font-title text-sm font-bold uppercase text-white group-hover:text-a-teal md:text-lg"
+            >
+              <span> {{ card.title }} </span>
+            </div>
+          </button>
         </AtomAnimate>
+        <div
+          v-if="popup"
+          class="fixed inset-0 z-50 flex h-full w-full items-center justify-center bg-black/90"
+        >
+          <div class="mx-auto w-full max-w-7xl p-4">
+            <button
+              @click="popup = false"
+              class="textMedium w-full pb-4 text-right font-bold uppercase hover:text-a-green"
+            >
+              Close
+            </button>
+            <div class="aspect-w-16 aspect-h-9">
+              <iframe
+                :src="selectedPortfolio"
+                frameborder="0"
+                allow="autoplay; fullscreen"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
         <div class="mt-4 flex justify-center space-x-4 pt-6">
           <AtomPlainLink
             to="https://calendly.com/auxanostudios/30min"
@@ -99,7 +128,7 @@
         </div>
       </AtomInner>
     </AtomSection>
-    <AtomSection tp="small" bp="small" class="hidden bg-a-teal">
+    <!-- <AtomSection tp="small" bp="small" class="hidden bg-a-teal">
       <AtomInner>
         <h2
           class="textXLarge pb-10 text-center font-title font-bold text-a-charcoal"
@@ -114,9 +143,46 @@
           />
         </AtomAnimate>
       </AtomInner>
-    </AtomSection>
+    </AtomSection> -->
   </TemplateDefault>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      selectedPortfolio: '',
+      popup: false,
+      cardInfo: [
+        {
+          title: ' portfolio 1',
+          video: 'https://player.vimeo.com/video/773601002',
+        },
+        {
+          title: ' portfolio 1',
+          video: 'https://player.vimeo.com/video/773601002',
+        },
+        {
+          title: ' portfolio 1',
+          video: 'https://player.vimeo.com/video/773601002',
+        },
+        {
+          title: ' portfolio 1',
+          video: 'https://player.vimeo.com/video/773601002',
+        },
+        {
+          title: ' portfolio 1',
+          video: 'https://player.vimeo.com/video/773601002',
+        },
+        {
+          title: ' portfolio 1',
+          video: 'https://player.vimeo.com/video/773601002',
+        },
+      ],
+    };
+  },
+};
+</script>
 
 <style>
 .main:after {
