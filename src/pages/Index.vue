@@ -91,10 +91,10 @@
             Book Your Discovery Call Here
           </AtomPlainLink>
           <AtomPlainLink
-            to="/our-portfolio"
+            to="/our-projects"
             class="buttonStyling whitespace-nowrap"
           >
-            Our Portfolio
+            Our Projects
           </AtomPlainLink>
         </div>
       </AtomInner>

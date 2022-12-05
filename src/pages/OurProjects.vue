@@ -48,11 +48,14 @@
           </div>
         </div>
         <AtomAnimate class="grid gap-6 pt-20 sm:grid-cols-2 xl:grid-cols-3">
-          <a
-            v-for="card in cardInfo[selectedTab].portfolio"
-            :key="card.portfolio"
-            href="#"
+          <button
+            v-for="(card, index) in cardInfo[selectedTab].portfolio"
+            :key="index"
             class="group relative"
+            @click="
+              selectedPortfolio = card.video;
+              popup = true;
+            "
           >
             <img src="/landingimage.png" alt="" class="rounded-3xl" />
             <div
@@ -60,8 +63,29 @@
             >
               <span> {{ card.title }} </span>
             </div>
-          </a>
+          </button>
         </AtomAnimate>
+        <div
+          v-if="popup"
+          class="fixed inset-0 z-50 flex h-full w-full items-center justify-center bg-black/90"
+        >
+          <div class="mx-auto w-full max-w-7xl p-4">
+            <button
+              @click="popup = false"
+              class="textMedium w-full pb-4 text-right font-bold uppercase hover:text-a-green"
+            >
+              Close
+            </button>
+            <div class="aspect-w-16 aspect-h-9">
+              <iframe
+                :src="selectedPortfolio"
+                frameborder="0"
+                allow="autoplay; fullscreen"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
       </AtomInner>
 
       <div class="flex justify-center pt-16">
@@ -81,6 +105,8 @@ export default {
   data() {
     return {
       selectedTab: 0,
+      popup: false,
+      selectedPortfolio: 'https://player.vimeo.com/video/76979871',
       tabs: [
         { title: 'Content Creation' },
         { title: 'Graphic Design' },
@@ -95,11 +121,11 @@ export default {
           portfolio: [
             {
               title: 'Content Creation portfolio 1',
-              video: '/intro_aux.mp4',
+              video: 'https://player.vimeo.com/video/773601002',
             },
             {
               title: 'Content Creation portfolio 2',
-              video: '/intro_aux.mp4',
+              video: 'https://player.vimeo.com/video/76979871',
             },
           ],
         },
@@ -112,11 +138,11 @@ export default {
           portfolio: [
             {
               title: 'graphic design portfolio 1',
-              video: '/intro_aux.mp4',
+              video: 'https://player.vimeo.com/video/773601002',
             },
             {
               title: 'graphic design portfolio 2',
-              video: '/intro_aux.mp4',
+              video: 'https://player.vimeo.com/video/76979871',
             },
           ],
         },
@@ -127,11 +153,11 @@ export default {
           portfolio: [
             {
               title: 'Photography portfolio 1',
-              video: '/intro_aux.mp4',
+              video: 'https://player.vimeo.com/video/773601002',
             },
             {
               title: 'Photography portfolio 2',
-              video: '/intro_aux.mp4',
+              video: 'https://player.vimeo.com/video/76979871',
             },
           ],
         },
@@ -144,11 +170,11 @@ export default {
           portfolio: [
             {
               title: 'Cinematography portfolio 1',
-              video: '/intro_aux.mp4',
+              video: 'https://player.vimeo.com/video/76979871',
             },
             {
               title: 'Cinematography portfolio 2',
-              video: '/intro_aux.mp4',
+              video: 'https://player.vimeo.com/video/76979871',
             },
           ],
         },
